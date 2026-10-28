@@ -12,6 +12,7 @@ The project provisions a Harvester cluster inside VMs on your host. Key componen
 - **Terraform scripts** — VMs are defined with the [libvirt provider](https://github.com/dmacvicar/terraform-provider-libvirt); its templating also generates config files inside the Admin VM.
 - **Bash scripts** — provisioning and daily-ops scripts. Ansible and similar tools are intentionally avoided to keep dependencies minimal.
 - **Artifact server** — an nginx container that serves ISOs and images.
+- **NFS server** — an nfs-ganesha container that backs the default `nfs-csi` StorageClass.
 
 ### VMs and Networks
 
@@ -52,7 +53,7 @@ Each libvirt network creates a Linux bridge with the same name on the host. Numb
     - Runs dnsmasq on eth1/eth2 to serve mgmt/data IPs.
     - Serves PXE firmware and boot configs.
   - Rancher node is disabled by default; see [Rancher tasks](docs/index.md#rancher-tasks---manager-rancher-manager-and-guest-clusters) to provision it.
-  - VM nodes are air-gapped by default; enable egress with `task op:admin-enable-egress`.
+  - VM nodes reach external registries through the admin VM NAT by default.
 
 - **hvst-mgmt**
   - Harvester node VMs use this network as management network.
@@ -98,6 +99,7 @@ sudo zypper -n install python3-pyaml go1.26
 - [task](https://taskfile.dev/)
 - [terraform](https://developer.hashicorp.com/terraform)
 - [yq](https://github.com/mikefarah/yq)
+- [helm](https://helm.sh/) (installs the default NFS CSI driver)
 
 
 The helper scripts install tools in your `$HOME/bin/` directory.
@@ -193,15 +195,16 @@ Edit `config.yaml` as needed (node count, CPU, memory), then start the cluster:
 task up
 ```
 
+`task up` enables node egress, starts the local NFS server, installs the NFS CSI driver, and creates the `nfs-csi` StorageClass. The cluster is therefore not air-gapped by default.
+
 > [!NOTE]
-> To use external artifacts instead of the local artifact server, set `.admin.egress_enabled: true` and point these fields to external URLs:
+> To use external artifacts instead of the local artifact server, point these fields to external URLs:
 > ```
 > harvester_iso_url:
 > harvester_kernel_url:
 > harvester_ramdisk_url:
 > harvester_rootfs_url:
 > ```
-> This enables egress on the admin node, so the environment is no longer air-gapped.
 
 ## Usage
 
@@ -218,11 +221,12 @@ SSH config is at `./state/ssh_config`.
 
 **VNC** — nodes listen on `0.0.0.0:5951+`. Connect to `<host-ip>:5951`, `:5952`, etc.
 
-**Internet** — nodes route through the admin node, which does not forward traffic by default.
+**Internet** — nodes route through the admin node, which forwards traffic by default so the NFS CSI driver can pull images.
 
 ```bash
 task op:admin-enable-egress   # enable forwarding
 task op:admin-disable-egress  # disable forwarding
+task nfs-csi-test             # verify an RWO PVC mounts and reads/writes through NFS CSI
 ```
 
 ## Tear down

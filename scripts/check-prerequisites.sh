@@ -67,6 +67,7 @@ check_pyaml() {
 check_command "task"
 check_command "terraform"
 check_command "yq"
+check_command "helm"
 check_command "virsh"
 check_go "v1.26"
 check_pyaml

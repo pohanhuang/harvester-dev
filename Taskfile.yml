@@ -53,6 +53,17 @@ tasks:
         ssh -F {{.ROOT_DIR}}/state/ssh_config admin "sudo mkdir -p /mnt/nfs-test && sudo mount -t nfs4 ${MGMT_IP}:/backup_target /mnt/nfs-test"
         ssh -F {{.ROOT_DIR}}/state/ssh_config admin "sudo touch /mnt/nfs-test/.mount-test && sudo rm /mnt/nfs-test/.mount-test && sudo umount /mnt/nfs-test"
         echo "NFS mount test OK"
+  nfs-csi-up:
+    desc: Install the NFS CSI driver and create the nfs-csi StorageClass
+    preconditions:
+      - sh: test -f {{.ROOT_DIR}}/kubeconfig
+        msg: "kubeconfig not found, install the Harvester cluster first"
+    cmds:
+      - ./nfs/setup-csi.sh
+  nfs-csi-test:
+    desc: Verify a ReadWriteOnce PVC can mount and read/write through NFS CSI
+    cmds:
+      - ./nfs/test-rwo-pvc.sh
   generate-macs:
     desc: Generate MAC addresses for nodes and update config file
     cmds:
@@ -109,10 +120,12 @@ tasks:
       - task: op:admin-wait
       - task: op:admin-enable-egress-if-configured
   up:
-    desc: Build base dev infra and install Harvester on nodes
+    desc: Build base dev infra, install Harvester, and configure NFS CSI
     deps: [admin-up]
     cmds:
+      - task: nfs-up
       - task: op:nodes-install
+      - task: nfs-csi-up
   rancher-install:
     desc: Bring up the Rancher VM and wait for it to be ready
     deps: [init]
