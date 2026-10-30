@@ -1,0 +1,646 @@
+08:06:50 original: <empty>
+08:06:50 baseline; target value: {"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}
+=== snapshot 08:06:50 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    storage-network.settings.harvesterhci.io/net-attach-def: ""
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 10
+  name: storage-network
+  resourceVersion: "121136"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-29T14:53:56Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                                                READY   STATUS    RESTARTS   AGE     IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          3h28m   10.52.0.62   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          39m     10.52.2.28   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          39m     10.52.1.37   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          17h     10.52.2.17   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          39m     10.52.0.66   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          17h     10.52.1.21   node2   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.62"
+    ],
+    "mac": "4a:ea:49:9a:ed:ff",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.28"
+    ],
+    "mac": "ae:0a:d9:e0:1e:61",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-d96360cd89d8476bd67099bdc29a6346	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.37"
+    ],
+    "mac": "be:10:fb:90:eb:40",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-e64bcc3211a25af5086fa237281fa6eb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.17"
+    ],
+    "mac": "a6:8a:26:bf:02:53",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.66"
+    ],
+    "mac": "1e:b7:ec:d9:89:80",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-f4fa7dfb426e198105a3040352cd4460	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.21"
+    ],
+    "mac": "72:b0:0f:97:83:e4",
+    "default": true,
+    "dns": {}
+}]
+No resources found
+08:06:51 --- round 1/3 ---
+08:06:51 set storage-network='{"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}'
+setting.harvesterhci.io/storage-network patched
+08:07:14 converged to 'on' in 22s
+=== snapshot 08:07:14 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: ade6fc50aabfabe3697d93e329912e1fdf051d68
+    storage-network.settings.harvesterhci.io/net-attach-def: harvester-system/storagenetwork-2pdqm
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 15
+  name: storage-network
+  resourceVersion: "1229623"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:06:57Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}'
+harvester-system/storagenetwork-2pdqm
+NAME                                                READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          19s   10.52.0.67   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          15s   10.52.2.30   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          14s   10.52.1.40   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          19s   10.52.2.29   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          13s   10.52.0.68   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          19s   10.52.1.39   node2   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.67"
+    ],
+    "mac": "82:7a:75:58:e2:12",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-2pdqm",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.2"
+    ],
+    "mac": "ee:31:81:82:00:ec",
+    "dns": {}
+}]
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.30"
+    ],
+    "mac": "a6:13:aa:f4:91:1b",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-2pdqm",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.4"
+    ],
+    "mac": "52:eb:16:ea:d9:47",
+    "dns": {}
+}]
+instance-manager-d96360cd89d8476bd67099bdc29a6346	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.40"
+    ],
+    "mac": "3e:7b:9d:5c:1d:68",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-2pdqm",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.5"
+    ],
+    "mac": "5e:fb:60:0d:5c:90",
+    "dns": {}
+}]
+instance-manager-e64bcc3211a25af5086fa237281fa6eb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.29"
+    ],
+    "mac": "86:da:37:84:35:4a",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-2pdqm",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.1"
+    ],
+    "mac": "36:28:b9:9c:8c:44",
+    "dns": {}
+}]
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.68"
+    ],
+    "mac": "62:d5:99:5b:de:67",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-2pdqm",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.6"
+    ],
+    "mac": "5a:e6:6f:c6:ed:5f",
+    "dns": {}
+}]
+instance-manager-f4fa7dfb426e198105a3040352cd4460	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.39"
+    ],
+    "mac": "8a:71:2f:f4:cd:35",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-2pdqm",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.3"
+    ],
+    "mac": "02:3f:e0:b9:ad:d0",
+    "dns": {}
+}]
+No resources found
+08:07:15 set storage-network=''
+setting.harvesterhci.io/storage-network patched
+08:07:38 converged to 'off' in 22s
+=== snapshot 08:07:38 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    storage-network.settings.harvesterhci.io/net-attach-def: ""
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 19
+  name: storage-network
+  resourceVersion: "1230391"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:07:16Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                                                READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          15s   10.52.0.69   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          7s    10.52.2.32   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          7s    10.52.1.42   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          15s   10.52.2.31   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          7s    10.52.0.70   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          14s   10.52.1.41   node2   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.69"
+    ],
+    "mac": "42:c6:25:3d:c7:0f",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.32"
+    ],
+    "mac": "0a:6a:8b:25:91:66",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-d96360cd89d8476bd67099bdc29a6346	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.42"
+    ],
+    "mac": "1e:56:ba:75:f6:db",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-e64bcc3211a25af5086fa237281fa6eb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.31"
+    ],
+    "mac": "62:98:be:d8:16:3e",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.70"
+    ],
+    "mac": "82:ff:24:b0:4c:f9",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-f4fa7dfb426e198105a3040352cd4460	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.41"
+    ],
+    "mac": "aa:e1:e2:d3:08:d9",
+    "default": true,
+    "dns": {}
+}]
+No resources found
+08:07:39 --- round 2/3 ---
+08:07:39 set storage-network='{"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}'
+setting.harvesterhci.io/storage-network patched
+08:08:37 converged to 'on' in 57s
+=== snapshot 08:08:37 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: ade6fc50aabfabe3697d93e329912e1fdf051d68
+    storage-network.settings.harvesterhci.io/net-attach-def: harvester-system/storagenetwork-wf765
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 23
+  name: storage-network
+  resourceVersion: "1231302"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:07:40Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}'
+harvester-system/storagenetwork-wf765
+NAME                                                READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          15s   10.52.0.72   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          26s   10.52.2.33   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          25s   10.52.1.43   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          23s   10.52.2.34   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          25s   10.52.0.71   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          15s   10.52.1.44   node2   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.72"
+    ],
+    "mac": "a2:4c:78:33:1b:c2",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-wf765",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.5"
+    ],
+    "mac": "7a:86:74:b0:72:15",
+    "dns": {}
+}]
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.33"
+    ],
+    "mac": "fa:60:b7:51:0c:b6",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-wf765",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.1"
+    ],
+    "mac": "52:46:eb:93:e4:b9",
+    "dns": {}
+}]
+instance-manager-d96360cd89d8476bd67099bdc29a6346	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.43"
+    ],
+    "mac": "ba:15:db:25:a6:57",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-wf765",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.2"
+    ],
+    "mac": "16:b6:df:90:f8:fd",
+    "dns": {}
+}]
+instance-manager-e64bcc3211a25af5086fa237281fa6eb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.34"
+    ],
+    "mac": "0a:32:f1:7b:ab:73",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-wf765",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.6"
+    ],
+    "mac": "a2:58:30:57:61:74",
+    "dns": {}
+}]
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.71"
+    ],
+    "mac": "ba:e6:ca:01:1d:33",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-wf765",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.3"
+    ],
+    "mac": "36:f5:21:7f:51:c3",
+    "dns": {}
+}]
+instance-manager-f4fa7dfb426e198105a3040352cd4460	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.44"
+    ],
+    "mac": "36:12:0e:f0:67:82",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-wf765",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.4"
+    ],
+    "mac": "92:c9:c1:2a:d8:88",
+    "dns": {}
+}]
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   20s         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:08:38 set storage-network=''
+setting.harvesterhci.io/storage-network patched
+08:09:33 converged to 'off' in 54s
+=== snapshot 08:09:33 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    storage-network.settings.harvesterhci.io/net-attach-def: ""
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 27
+  name: storage-network
+  resourceVersion: "1233272"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:08:39Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                                                READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          5s    10.52.0.73   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          16s   10.52.2.35   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          11s   10.52.1.45   node2   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          5s    10.52.0.74   node1   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.73"
+    ],
+    "mac": "56:9c:bd:d2:af:75",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.35"
+    ],
+    "mac": "f6:29:5d:ee:36:c5",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-d96360cd89d8476bd67099bdc29a6346	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.45"
+    ],
+    "mac": "0e:e0:c8:57:0a:c1",
+    "default": true,
+    "dns": {}
+}]
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.74"
+    ],
+    "mac": "2e:d1:5f:26:bd:ed",
+    "default": true,
+    "dns": {}
+}]
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   77s         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:09:35 --- round 3/3 ---
+08:09:35 set storage-network='{"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}'
+setting.harvesterhci.io/storage-network patched
+08:09:57 converged to 'on' in 22s
+=== snapshot 08:09:57 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: ade6fc50aabfabe3697d93e329912e1fdf051d68
+    storage-network.settings.harvesterhci.io/net-attach-def: harvester-system/storagenetwork-fw54f
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 31
+  name: storage-network
+  resourceVersion: "1235231"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:09:35Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"vlan":100,"clusterNetwork":"snt","range":"10.0.20.0/24"}'
+harvester-system/storagenetwork-fw54f
+NAME                                                READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          17s   10.52.2.36   node3   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          21s   10.52.1.46   node2   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-e64bcc3211a25af5086fa237281fa6eb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.36"
+    ],
+    "mac": "62:c9:b6:4b:c7:10",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-fw54f",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.2"
+    ],
+    "mac": "de:3d:a6:f6:48:ad",
+    "dns": {}
+}]
+instance-manager-f4fa7dfb426e198105a3040352cd4460	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.46"
+    ],
+    "mac": "0e:b4:ea:1a:ae:14",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/storagenetwork-fw54f",
+    "interface": "lhnet1",
+    "ips": [
+        "10.0.20.1"
+    ],
+    "mac": "16:3d:83:e1:97:cd",
+    "dns": {}
+}]
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   100s        Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:09:58 set storage-network=''
+setting.harvesterhci.io/storage-network patched
+08:11:26 converged to 'off' in 87s
+=== snapshot 08:11:26 ===
+apiVersion: harvesterhci.io/v1beta1
+kind: Setting
+metadata:
+  annotations:
+    storage-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    storage-network.settings.harvesterhci.io/net-attach-def: ""
+    storage-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 35
+  name: storage-network
+  resourceVersion: "1236059"
+  uid: f4cb2d65-bb11-496d-8e77-37ff1bafc1ea
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:09:59Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                                                READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          4s    10.52.1.47   node2   <none>           <none>
+No resources found in longhorn-system namespace.
+instance-manager-d96360cd89d8476bd67099bdc29a6346	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.47"
+    ],
+    "mac": "8e:be:87:38:b8:b7",
+    "default": true,
+    "dns": {}
+}]
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   3m10s       Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:11:28 original value already in place
+08:11:28 PASS: 3 rounds of enable/disable

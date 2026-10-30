@@ -1,0 +1,453 @@
+08:31:46 original: {"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}
+08:31:46 baseline; mode=dedicated value: {"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}
+=== snapshot 08:31:46 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-rzc9n
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 18
+  name: rwx-network
+  resourceVersion: "152120"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-29T15:29:44Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-rzc9n
+NAME                        READY   STATUS    RESTARTS        AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-49qd5   3/3     Running   0               17h   10.52.1.27   node2   <none>           <none>
+longhorn-csi-plugin-l9kjc   3/3     Running   0               17h   10.52.2.24   node3   <none>           <none>
+longhorn-csi-plugin-ts6zz   3/3     Running   3 (3h55m ago)   17h   10.52.0.35   node1   <none>           <none>
+longhorn-csi-plugin-49qd5	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.27"
+    ],
+    "mac": "e6:85:7b:bf:d1:98",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-rzc9n",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "1e:ad:c6:08:e0:15",
+    "dns": {}
+}]
+longhorn-csi-plugin-l9kjc	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.24"
+    ],
+    "mac": "ce:26:0f:31:48:f6",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-rzc9n",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "0e:76:7a:90:8a:2b",
+    "dns": {}
+}]
+longhorn-csi-plugin-ts6zz	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.35"
+    ],
+    "mac": "22:a4:1a:0e:37:e3",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-rzc9n",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "46:d6:10:c9:2e:48",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   23m         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:31:48 --- round 1/3 ---
+08:31:48 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched (no change)
+08:32:03 note: configured lastUpdateTime 2026-10-29T15:29:44Z older than apply 2026-10-30T08:31:48Z
+08:32:04 converged to 'on' in 16s
+=== snapshot 08:32:04 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-rzc9n
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 18
+  name: rwx-network
+  resourceVersion: "152120"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-29T15:29:44Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-rzc9n
+NAME                        READY   STATUS    RESTARTS        AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-49qd5   3/3     Running   0               17h   10.52.1.27   node2   <none>           <none>
+longhorn-csi-plugin-l9kjc   3/3     Running   0               17h   10.52.2.24   node3   <none>           <none>
+longhorn-csi-plugin-ts6zz   3/3     Running   3 (3h55m ago)   17h   10.52.0.35   node1   <none>           <none>
+longhorn-csi-plugin-49qd5	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.27"
+    ],
+    "mac": "e6:85:7b:bf:d1:98",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-rzc9n",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "1e:ad:c6:08:e0:15",
+    "dns": {}
+}]
+longhorn-csi-plugin-l9kjc	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.24"
+    ],
+    "mac": "ce:26:0f:31:48:f6",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-rzc9n",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "0e:76:7a:90:8a:2b",
+    "dns": {}
+}]
+longhorn-csi-plugin-ts6zz	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.35"
+    ],
+    "mac": "22:a4:1a:0e:37:e3",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-rzc9n",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "46:d6:10:c9:2e:48",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   23m         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:32:06 set rwx-network=''
+setting.harvesterhci.io/rwx-network patched
+08:39:03 converged to 'off' in 417s
+=== snapshot 08:39:03 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: ""
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 21
+  name: rwx-network
+  resourceVersion: "1279308"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:32:06Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-4zvwf   3/3     Running   0          15s   10.52.2.39   node3   <none>           <none>
+longhorn-csi-plugin-kdxjt   3/3     Running   0          22s   10.52.1.50   node2   <none>           <none>
+longhorn-csi-plugin-pgcrw   3/3     Running   0          30s   10.52.0.77   node1   <none>           <none>
+longhorn-csi-plugin-4zvwf	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.39"
+    ],
+    "mac": "92:44:69:9a:0c:64",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-kdxjt	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.50"
+    ],
+    "mac": "92:04:f4:92:e5:78",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-pgcrw	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.77"
+    ],
+    "mac": "d6:7a:c4:b3:5b:16",
+    "default": true,
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   30m         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:39:04 --- round 2/3 ---
+08:39:04 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched
+08:49:08 converged to 'on' in 604s
+=== snapshot 08:49:08 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-vrrqz
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 24
+  name: rwx-network
+  resourceVersion: "1285274"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:39:05Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-vrrqz
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-nngx2   3/3     Running   0          27s   10.52.0.78   node1   <none>           <none>
+longhorn-csi-plugin-tkzhl   3/3     Running   0          8s    10.52.1.51   node2   <none>           <none>
+longhorn-csi-plugin-zgklh   3/3     Running   0          15s   10.52.2.40   node3   <none>           <none>
+longhorn-csi-plugin-nngx2	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.78"
+    ],
+    "mac": "b2:25:d9:be:45:3c",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-vrrqz",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "32:89:0f:d2:04:2d",
+    "dns": {}
+}]
+longhorn-csi-plugin-tkzhl	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.51"
+    ],
+    "mac": "06:26:a7:56:b1:86",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-vrrqz",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "3a:65:0e:99:7f:b7",
+    "dns": {}
+}]
+longhorn-csi-plugin-zgklh	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.40"
+    ],
+    "mac": "52:6e:0d:22:0b:40",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-vrrqz",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "36:3e:74:93:54:82",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   40m         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:49:09 set rwx-network=''
+setting.harvesterhci.io/rwx-network patched
+08:50:16 converged to 'off' in 66s
+=== snapshot 08:50:16 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: ""
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 27
+  name: rwx-network
+  resourceVersion: "1293795"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:49:10Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-22hsb   3/3     Running   0          7s    10.52.0.79   node1   <none>           <none>
+longhorn-csi-plugin-gplvm   3/3     Running   0          15s   10.52.2.41   node3   <none>           <none>
+longhorn-csi-plugin-x6qfl   3/3     Running   0          22s   10.52.1.52   node2   <none>           <none>
+longhorn-csi-plugin-22hsb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.79"
+    ],
+    "mac": "ae:46:22:24:69:3b",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-gplvm	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.41"
+    ],
+    "mac": "3a:a4:f9:ef:38:9b",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-x6qfl	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.52"
+    ],
+    "mac": "06:e1:9d:0d:61:3c",
+    "default": true,
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   41m         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+08:50:17 --- round 3/3 ---
+08:50:17 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched
+09:00:26 FAIL: not converged to 'on' within 600s
+=== snapshot 09:00:26 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-hrb6k
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 30
+  name: rwx-network
+  resourceVersion: "1294911"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:50:17Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-hrb6k
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-22hsb   3/3     Running   0          10m   10.52.0.79   node1   <none>           <none>
+longhorn-csi-plugin-gplvm   3/3     Running   0          10m   10.52.2.41   node3   <none>           <none>
+longhorn-csi-plugin-x6qfl   3/3     Running   0          10m   10.52.1.52   node2   <none>           <none>
+longhorn-csi-plugin-22hsb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.79"
+    ],
+    "mac": "ae:46:22:24:69:3b",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-gplvm	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.41"
+    ],
+    "mac": "3a:a4:f9:ef:38:9b",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-x6qfl	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.52"
+    ],
+    "mac": "06:e1:9d:0d:61:3c",
+    "default": true,
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+NAMESPACE         LAST SEEN   TYPE      REASON                   OBJECT                                                  MESSAGE
+longhorn-system   52m         Warning   FailedCreatePodSandBox   pod/instance-manager-e64bcc3211a25af5086fa237281fa6eb   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "0375898cfb86818832e08b01fe81489a82d67c6f67c2693145f329546b5be07e": plugin type="multus" name="multus-cni-network" failed (add): Multus: [longhorn-system/instance-manager-e64bcc3211a25af5086fa237281fa6eb/638493a0-3848-4afb-aeb8-1b520bb26510]: error waiting for pod: Get "https://10.53.0.1:443/api/v1/namespaces/longhorn-system/pods/instance-manager-e64bcc3211a25af5086fa237281fa6eb?timeout=1m0s": context deadline exceeded
+09:00:28 state left as-is for debugging. restore with:
+09:00:28   kubectl patch settings.harvesterhci.io rwx-network --type=merge -p '{"value": "{\"share-storage-network\":false,\"network\":{\"vlan\":100,\"clusterNetwork\":\"snt\",\"range\":\"10.0.19.0/24\"}}"}'

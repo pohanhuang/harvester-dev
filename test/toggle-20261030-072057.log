@@ -1,0 +1,287 @@
+07:20:57 baseline
+=== snapshot 07:20:57 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: 6aedcf1f4f9595467c7483d7f5c216be2e7027d76c03e8eac4a2c32d
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 13
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "804254"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T04:36:03Z"
+    status: "True"
+    type: configured
+value: "true"
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   true    true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          162m   10.52.0.62   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          164m   10.52.2.25   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          164m   10.52.1.31   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          162m   10.52.0.63   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:20:58 --- round 1/3 ---
+07:20:58 set longhorn-v2-data-engine-enabled='true'
+07:22:00 converged to 'true' in 62s
+=== snapshot 07:22:00 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: 6aedcf1f4f9595467c7483d7f5c216be2e7027d76c03e8eac4a2c32d
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 13
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "804254"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T04:36:03Z"
+    status: "True"
+    type: configured
+value: "true"
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   true    true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          163m   10.52.0.62   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          165m   10.52.2.25   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          165m   10.52.1.31   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          163m   10.52.0.63   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:22:01 set longhorn-v2-data-engine-enabled=''
+07:23:03 converged to 'cleared' in 61s
+=== snapshot 07:23:03 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 15
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "1136869"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T07:22:04Z"
+    status: "False"
+    type: configured
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   false   true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          165m   10.52.0.62   node1   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:23:04 --- round 2/3 ---
+07:23:04 set longhorn-v2-data-engine-enabled='true'
+07:24:06 converged to 'true' in 62s
+=== snapshot 07:24:06 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: 6aedcf1f4f9595467c7483d7f5c216be2e7027d76c03e8eac4a2c32d
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 17
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "1138871"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T07:23:04Z"
+    status: "True"
+    type: configured
+value: "true"
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   true    true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          166m   10.52.0.62   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   1          56s    10.52.2.26   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          44s    10.52.1.33   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          51s    10.52.0.64   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:24:07 set longhorn-v2-data-engine-enabled=''
+07:25:08 converged to 'cleared' in 61s
+=== snapshot 07:25:08 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 19
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "1140940"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T07:24:09Z"
+    status: "False"
+    type: configured
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   0
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   false   true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          167m   10.52.0.62   node1   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:25:10 --- round 3/3 ---
+07:25:10 set longhorn-v2-data-engine-enabled='true'
+07:26:12 converged to 'true' in 62s
+=== snapshot 07:26:12 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: 6aedcf1f4f9595467c7483d7f5c216be2e7027d76c03e8eac4a2c32d
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 22
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "1143313"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T07:25:25Z"
+    status: "True"
+    type: configured
+value: "true"
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   true    true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          168m   10.52.0.62   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          40s    10.52.2.27   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          39s    10.52.1.35   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          44s    10.52.0.65   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:26:13 set longhorn-v2-data-engine-enabled=''
+07:27:14 converged to 'cleared' in 61s
+=== snapshot 07:27:14 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 24
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "1145114"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T07:26:15Z"
+    status: "False"
+    type: configured
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   false   true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          169m   10.52.0.62   node1   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:27:16 set longhorn-v2-data-engine-enabled='true'
+07:28:18 converged to 'true' in 62s
+=== snapshot 07:28:18 ===
+apiVersion: harvesterhci.io/v1beta1
+default: "false"
+kind: Setting
+metadata:
+  annotations:
+    harvesterhci.io/hash: 6aedcf1f4f9595467c7483d7f5c216be2e7027d76c03e8eac4a2c32d
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 26
+  name: longhorn-v2-data-engine-enabled
+  resourceVersion: "1147054"
+  uid: d2b451f5-2a44-4430-8651-ca8f97979d75
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T07:27:16Z"
+    status: "True"
+    type: configured
+value: "true"
+NAME    STATUS   ROLES                AGE   VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                   KERNEL-VERSION                     CONTAINER-RUNTIME
+node1   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.11    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node2   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.12    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+node3   Ready    control-plane,etcd   18h   v1.36.5+rke2r1   10.0.10.13    <none>        Harvester a5f0b413-dirty   6.12.0-160000.40-default (amd64)   containerd://2.3.4-k3s1
+NODE    HP2Mi
+node1   2Gi
+node2   2Gi
+node3   2Gi
+NAME             VALUE   APPLIED   AGE
+v2-data-engine   true    true      18h
+NAME                                                READY   STATUS    RESTARTS   AGE    IP           NODE    NOMINATED NODE   READINESS GATES
+instance-manager-0ffe581bdb2040f144d6ac7eab4cb941   1/1     Running   0          170m   10.52.0.62   node1   <none>           <none>
+instance-manager-7856c94825cdc4e0854704eaa0ae5d10   1/1     Running   0          51s    10.52.2.28   node3   <none>           <none>
+instance-manager-d96360cd89d8476bd67099bdc29a6346   1/1     Running   0          53s    10.52.1.37   node2   <none>           <none>
+instance-manager-e64bcc3211a25af5086fa237281fa6eb   1/1     Running   0          16h    10.52.2.17   node3   <none>           <none>
+instance-manager-eabbcb81ae3c35acc91d7ed9d84102e2   1/1     Running   0          50s    10.52.0.66   node1   <none>           <none>
+instance-manager-f4fa7dfb426e198105a3040352cd4460   1/1     Running   0          16h    10.52.1.21   node2   <none>           <none>
+07:28:19 PASS: 3 rounds of set/clear + final set

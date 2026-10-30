@@ -1,0 +1,548 @@
+10:11:06 original: {"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}
+10:11:06 baseline; mode=dedicated value: {"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}
+=== snapshot 10:11:06 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-hrb6k
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 30
+  name: rwx-network
+  resourceVersion: "1294911"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:50:17Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-hrb6k
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-ckmbp   3/3     Running   0          32m   10.52.2.42   node3   <none>           <none>
+longhorn-csi-plugin-h48hn   3/3     Running   0          32m   10.52.1.53   node2   <none>           <none>
+longhorn-csi-plugin-qwcv5   3/3     Running   0          32m   10.52.0.80   node1   <none>           <none>
+longhorn-csi-plugin-ckmbp	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.42"
+    ],
+    "mac": "6e:c9:f7:82:06:06",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-hrb6k",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "1e:bb:1c:23:f2:e0",
+    "dns": {}
+}]
+longhorn-csi-plugin-h48hn	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.53"
+    ],
+    "mac": "7e:cc:57:59:91:70",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-hrb6k",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "9e:e0:aa:71:2c:35",
+    "dns": {}
+}]
+longhorn-csi-plugin-qwcv5	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.80"
+    ],
+    "mac": "de:f5:50:dd:82:89",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-hrb6k",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "82:e3:a7:5c:eb:0a",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:11:08 --- round 1/3 ---
+10:11:08 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched (no change)
+10:11:24 note: configured lastUpdateTime 2026-10-30T08:50:17Z older than apply 2026-10-30T10:11:08Z
+10:11:25 converged to 'on' in 17s
+=== snapshot 10:11:25 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-hrb6k
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 30
+  name: rwx-network
+  resourceVersion: "1294911"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T08:50:17Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-hrb6k
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-ckmbp   3/3     Running   0          32m   10.52.2.42   node3   <none>           <none>
+longhorn-csi-plugin-h48hn   3/3     Running   0          32m   10.52.1.53   node2   <none>           <none>
+longhorn-csi-plugin-qwcv5   3/3     Running   0          32m   10.52.0.80   node1   <none>           <none>
+longhorn-csi-plugin-ckmbp	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.42"
+    ],
+    "mac": "6e:c9:f7:82:06:06",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-hrb6k",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "1e:bb:1c:23:f2:e0",
+    "dns": {}
+}]
+longhorn-csi-plugin-h48hn	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.53"
+    ],
+    "mac": "7e:cc:57:59:91:70",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-hrb6k",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "9e:e0:aa:71:2c:35",
+    "dns": {}
+}]
+longhorn-csi-plugin-qwcv5	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.80"
+    ],
+    "mac": "de:f5:50:dd:82:89",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-hrb6k",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "82:e3:a7:5c:eb:0a",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:11:26 set rwx-network=''
+setting.harvesterhci.io/rwx-network patched
+10:11:48   waiting (22s): csi-plugin rollout: desired=3 updated=3 ready=2
+10:11:59 converged to 'off' in 33s
+=== snapshot 10:11:59 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: ""
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 33
+  name: rwx-network
+  resourceVersion: "1362625"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T10:11:26Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-bqkxf   3/3     Running   0          24s   10.52.2.43   node3   <none>           <none>
+longhorn-csi-plugin-fvzpf   3/3     Running   0          17s   10.52.0.81   node1   <none>           <none>
+longhorn-csi-plugin-rhp6w   3/3     Running   0          32s   10.52.1.54   node2   <none>           <none>
+longhorn-csi-plugin-bqkxf	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.43"
+    ],
+    "mac": "ce:33:4d:8e:d4:b9",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-fvzpf	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.81"
+    ],
+    "mac": "d6:e5:f9:18:09:f9",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-rhp6w	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.54"
+    ],
+    "mac": "9a:72:ab:45:e3:f4",
+    "default": true,
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:12:01 --- round 2/3 ---
+10:12:01 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched
+10:12:22   waiting (21s): csi-plugin rollout: desired=3 updated=3 ready=2
+10:12:34 converged to 'on' in 33s
+=== snapshot 10:12:34 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-v2df2
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 36
+  name: rwx-network
+  resourceVersion: "1363264"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T10:12:01Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-v2df2
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-bf2r7   3/3     Running   0          18s   10.52.1.55   node2   <none>           <none>
+longhorn-csi-plugin-bnsmv   3/3     Running   0          33s   10.52.0.82   node1   <none>           <none>
+longhorn-csi-plugin-mq6n8   3/3     Running   0          26s   10.52.2.44   node3   <none>           <none>
+longhorn-csi-plugin-bf2r7	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.55"
+    ],
+    "mac": "62:54:6e:29:cb:a0",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-v2df2",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "f2:80:3c:4f:60:7d",
+    "dns": {}
+}]
+longhorn-csi-plugin-bnsmv	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.82"
+    ],
+    "mac": "f6:32:de:67:1f:c9",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-v2df2",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "96:f3:e4:86:71:2e",
+    "dns": {}
+}]
+longhorn-csi-plugin-mq6n8	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.44"
+    ],
+    "mac": "66:11:63:ce:1e:77",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-v2df2",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "9e:03:ae:7a:22:30",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:12:36 set rwx-network=''
+setting.harvesterhci.io/rwx-network patched
+10:12:57   waiting (21s): csi-plugin rollout: desired=3 updated=3 ready=2
+10:13:09 converged to 'off' in 33s
+=== snapshot 10:13:09 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: ""
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 39
+  name: rwx-network
+  resourceVersion: "1363910"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T10:12:36Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-48p4q   3/3     Running   0          24s   10.52.1.56   node2   <none>           <none>
+longhorn-csi-plugin-4vjrg   3/3     Running   0          17s   10.52.2.45   node3   <none>           <none>
+longhorn-csi-plugin-p6xgg   3/3     Running   0          32s   10.52.0.83   node1   <none>           <none>
+longhorn-csi-plugin-48p4q	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.56"
+    ],
+    "mac": "ae:88:5b:e0:87:82",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-4vjrg	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.45"
+    ],
+    "mac": "6e:32:dc:8c:4a:02",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-p6xgg	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.83"
+    ],
+    "mac": "4a:66:4c:07:69:6e",
+    "default": true,
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:13:10 --- round 3/3 ---
+10:13:10 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched
+10:13:32   waiting (21s): csi-plugin rollout: desired=3 updated=3 ready=2
+10:13:44 converged to 'on' in 33s
+=== snapshot 10:13:44 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: 4536ba51965581ccc2f4b862db36d76fbc3c6051
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: harvester-system/rwx-network-ljlwg
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 42
+  name: rwx-network
+  resourceVersion: "1364534"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T10:13:11Z"
+    reason: Completed
+    status: "True"
+    type: configured
+value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+harvester-system/rwx-network-ljlwg
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-km5h4   3/3     Running   0          32s   10.52.0.84   node1   <none>           <none>
+longhorn-csi-plugin-s6666   3/3     Running   0          18s   10.52.1.57   node2   <none>           <none>
+longhorn-csi-plugin-xs8xt   3/3     Running   0          25s   10.52.2.46   node3   <none>           <none>
+longhorn-csi-plugin-km5h4	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.84"
+    ],
+    "mac": "56:53:a0:41:03:ca",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-ljlwg",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.1"
+    ],
+    "mac": "22:93:48:7b:e8:68",
+    "dns": {}
+}]
+longhorn-csi-plugin-s6666	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.57"
+    ],
+    "mac": "16:9a:18:5b:85:5d",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-ljlwg",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.3"
+    ],
+    "mac": "e2:ce:09:13:e2:50",
+    "dns": {}
+}]
+longhorn-csi-plugin-xs8xt	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.46"
+    ],
+    "mac": "d6:44:6c:87:98:ef",
+    "default": true,
+    "dns": {}
+},{
+    "name": "harvester-system/rwx-network-ljlwg",
+    "interface": "lhnet2",
+    "ips": [
+        "10.0.19.2"
+    ],
+    "mac": "06:39:a8:71:29:08",
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:13:45 set rwx-network=''
+setting.harvesterhci.io/rwx-network patched
+10:14:07   waiting (22s): csi-plugin rollout: desired=3 updated=3 ready=2
+10:14:19 converged to 'off' in 34s
+=== snapshot 10:14:19 ===
+apiVersion: harvesterhci.io/v1beta1
+default: '{"share-storage-network":false}'
+kind: Setting
+metadata:
+  annotations:
+    rwx-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+    rwx-network.settings.harvesterhci.io/initialized: "true"
+    rwx-network.settings.harvesterhci.io/net-attach-def: ""
+    rwx-network.settings.harvesterhci.io/old-net-attach-def: ""
+  creationTimestamp: "2026-10-29T12:41:14Z"
+  generation: 45
+  name: rwx-network
+  resourceVersion: "1365166"
+  uid: b124e288-fbbf-4b85-a7e7-92dbd4e8c8bf
+status:
+  conditions:
+  - lastUpdateTime: "2026-10-30T10:13:46Z"
+    reason: Completed
+    status: "True"
+    type: configured
+
+NAME                        READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES
+longhorn-csi-plugin-2brs9   3/3     Running   0          16s   10.52.2.47   node3   <none>           <none>
+longhorn-csi-plugin-q6ssb   3/3     Running   0          24s   10.52.0.85   node1   <none>           <none>
+longhorn-csi-plugin-wg9q4   3/3     Running   0          32s   10.52.1.58   node2   <none>           <none>
+longhorn-csi-plugin-2brs9	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.2.47"
+    ],
+    "mac": "96:e9:39:28:74:7b",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-q6ssb	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.0.85"
+    ],
+    "mac": "d6:01:1f:09:f2:8d",
+    "default": true,
+    "dns": {}
+}]
+longhorn-csi-plugin-wg9q4	[{
+    "name": "k8s-pod-network",
+    "interface": "eth0",
+    "ips": [
+        "10.52.1.58"
+    ],
+    "mac": "d2:7d:98:93:7c:f3",
+    "default": true,
+    "dns": {}
+}]
+No resources found in longhorn-system namespace.
+No resources found
+No resources found
+10:14:20 set rwx-network='{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+setting.harvesterhci.io/rwx-network patched
+10:14:42   waiting (22s): csi-plugin rollout: desired=3 updated=3 ready=2
+10:14:54 converged to 'on' in 34s
+10:14:54 restored original value: '{"share-storage-network":false,"network":{"vlan":100,"clusterNetwork":"snt","range":"10.0.19.0/24"}}'
+10:14:54 PASS: 3 rounds of enable/disable

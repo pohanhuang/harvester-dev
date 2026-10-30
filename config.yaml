@@ -1,0 +1,299 @@
+##############################################################################
+# harvester-dev configuration file
+#
+# Bcause new lines are removed by yq when writing to the file, we remove the
+# new lines in this file and separate sections with a comments.
+# 
+##############################################################################
+##############################################################################
+# Release server configuration
+##############################################################################
+harvester_release_url: https://releases.rancher.com/harvester
+artifact_server_url: http://10.0.10.1:8787
+harvester_version: harvester-a5f0b413-dirty
+harvester_iso_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-amd64.iso
+harvester_kernel_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-vmlinuz-amd64
+harvester_ramdisk_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-initrd-amd64
+harvester_rootfs_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-rootfs-amd64.squashfs
+##############################################################################
+# Golden image configuration
+##############################################################################
+golden:
+  base_dir: /var/lib/libvirt/images/golden
+  # repo_id: ""   # optional override; defaults to .provider.domain_prefix
+##############################################################################
+# Artifacts
+##############################################################################
+artifacts:
+  images:
+    - name: alpine-admin.img
+      url: https://github.com/bk201/alpine-cloud-images/releases/download/20260808/3.24.1-x86_64-bios-cloudinit-vm-generic-20260808.img.gz
+    - name: noble-server-cloudimg-amd64.img
+      url: https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+    - name: openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+      url: https://download.opensuse.org/repositories/Cloud:/Images:/Leap_15.6/images/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+##############################################################################
+# Provider configuration
+##############################################################################
+provider:
+  libvirt:
+    # uri: qemu:///system
+    uri: "qemu:///system"
+  domain_prefix: hvst
+token: my-token
+##############################################################################
+# Networks configuration
+##############################################################################
+networks:
+  nat:
+    bridge_name: hvst-libvirt
+    bridge_ip: "192.168.123.1"
+    netmask: "255.255.255.0"
+    dhcp_start: "192.168.123.5"
+    dhcp_end: "192.168.123.15"
+  mgmt:
+    bridge_name: hvst-mgmt
+    bridge_ip: "10.0.10.1"
+    netmask: "255.255.255.0"
+    dhcp_start: "10.0.10.50"
+    dhcp_end: "10.0.10.60"
+  data:
+    bridge_name: hvst-data
+    bridge_ip: "10.0.11.1"
+    netmask: "255.255.255.0"
+    dhcp_start: "10.0.11.100"
+    dhcp_end: "10.0.11.200"
+vip: 10.0.10.100
+vip_mac: 52:54:00:12:34:56
+vip_mode: dhcp
+##############################################################################
+# Admin node
+##############################################################################
+admin:
+  # support "https://server/image", "/home/path/to/image", and "./relative_path/to/image"
+  image_url: "./artifacts/images/alpine-admin.img"
+  image_vol_size: 20
+  running: true
+  cpu: 1
+  memory_in_mib: 256
+  private_key_path: state/keys/id_rsa
+  pubkey_path: state/keys/id_rsa.pub
+  dhcp:
+    dns_servers:
+      - 8.8.8.8
+  interfaces:
+    - ip: 10.0.10.10/24
+    - ip: 10.0.11.10/24
+  egress_enabled: true
+##############################################################################
+# Rancher node
+##############################################################################
+rancher:
+  enabled: false
+  user: ubuntu
+  running: true
+  image_url: "./artifacts/images/noble-server-cloudimg-amd64.img"
+  image_vol_size: 50
+  cpu: 4
+  memory_in_mib: 8192
+  interfaces:
+    - ip: 10.0.10.5/24
+  # Provisioning configuration
+  k3s_version: v1.35.3+k3s1
+  repo: https://releases.rancher.com/server-charts/latest
+  version: v2.14.0
+  bootstrap_password: password
+  admin_password: "password1234"
+  hostname: rancher.10.0.10.5.sslip.io
+##############################################################################
+# Harvester nodes
+##############################################################################
+node_installed_timeout: 40
+node_password: rancher
+node_additional_keys: []
+node_count: 3
+node_disk_owner: qemu
+node_disk_group: qemu
+node_snapshot_after_provision: false
+nodes:
+  - ip: 10.0.10.11
+    cpu: 8
+    memory: 24
+    # Disks attached in order: vda, vdb
+    disks:
+      - 500G
+      - 200G
+    interfaces:
+      - mac: 52:54:00:2a:bf:8a
+      - mac: 52:54:00:e0:54:dd
+    mgmt_interface: enp1s0
+    role: default
+    vnc_port: 5951
+  - ip: 10.0.10.12
+    cpu: 8
+    memory: 16
+    disks:
+      - 500G
+      - 200G
+    interfaces:
+      - mac: 52:54:00:19:63:0e
+      - mac: 52:54:00:60:28:64
+    mgmt_interface: enp1s0
+    role: default
+    vnc_port: 5952
+  - ip: 10.0.10.13
+    cpu: 8
+    memory: 16
+    disks:
+      - 500G
+      - 200G
+    interfaces:
+      - mac: 52:54:00:99:59:d9
+      - mac: 52:54:00:13:26:a3
+    mgmt_interface: enp1s0
+    role: default
+    vnc_port: 5953
+node_hacks:
+  # https://github.com/harvester/harvester/issues/11122
+  ensure_vip_stable: false
+##############################################################################
+# Harvester cluster
+##############################################################################
+harvester:
+  name: harvester-dev
+  admin_password: password1234
+  # namespace to provisiong VMs, networks, and images, etc.
+  namespace: default
+  vms:
+    ubuntu:
+      count: 0
+      cpu: 1
+      memory_in_mib: 512
+      disk_size: 20
+      image_url: http://cloud-images.ubuntu.com/noble/20260323/noble-server-cloudimg-amd64.img
+    opensuse:
+      count: 0
+      cpu: 1
+      memory_in_mib: 512
+      disk_size: 20
+      image_url: https://download.opensuse.org/repositories/Cloud:/Images:/Leap_15.6/images/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+  private_key_path: state/keys/id_rsa
+  pubkey_path: state/keys/id_rsa.pub
+  # vip or first_node
+  kubeconfig_server_ip_type: vip
+  cluster_network:
+    name: cluster-vlan
+    uplink: enp2s0
+  vm_network:
+    vlan_id: 1
+  # containerd-registry setting. Note this is applied only when calling `harvester-configure-registries` task
+  registry_mirrors:
+    - registry: docker.io
+      endpoint: http://10.0.10.1:5000
+##############################################################################
+# Guest clusters
+##############################################################################
+guest_clusters:
+  - name: gc-ubuntu
+    enabled: true
+    namespace: default
+    kubernetes_version: v1.33.9+rke2r1
+    node_count: 1
+    cpu: 4
+    memory_in_gib: 4
+    image_name: ubuntu
+    ssh_user: ubuntu
+    network: hvst-dev-vlan
+    disk_size: 50
+    user_data: |-
+      password: a
+      chpasswd: { expire: False }
+      ssh_pwauth: True
+      package_update: true
+      packages:
+        - qemu-guest-agent
+      apt:
+        disable_suites: [backports, security]
+        primary:
+          - arches: [ amd64, i386, default ]
+            uri: https://free.nchc.org.tw/ubuntu
+      runcmd:
+        - - systemctl
+          - enable
+          - '--now'
+          - qemu-guest-agent.service
+  - name: gc-opensuse
+    enabled: false
+    namespace: default
+    kubernetes_version: v1.33.9+rke2r1
+    node_count: 1
+    cpu: 4
+    memory_in_gib: 4
+    image_name: opensuse
+    ssh_user: opensuse
+    network: hvst-dev-vlan
+    disk_size: 50
+    user_data: |-
+      password: a
+      chpasswd: { expire: False }
+      ssh_pwauth: True
+      package_update: true
+      packages:
+        - qemu-guest-agent
+      runcmd:
+        - - systemctl
+          - enable
+          - '--now'
+          - qemu-guest-agent.service
+##############################################################################
+# Tests
+##############################################################################
+tests:
+  #cluster:
+  #  branch: "test"
+  upgrade:
+    skip_version_check: true
+    parallel_preload: true
+    iso_url: http://10.0.10.1:8787/isos/harvester-master/harvester-master-amd64.iso
+##############################################################################
+# ISO boot nodes
+##############################################################################
+iso_boot:
+  file: /path/to/install.iso
+  count: 0
+  cpu: 8
+  vnc_port_start: 5961
+  memory: 16
+  # Disks, you can change sizes here
+  disks:
+    - 500G
+    - 500G
+##############################################################################
+# Extra nodes
+# Note: the VM live with the cluster, `task clean` will delete them!!
+##############################################################################
+extra_nodes:
+  - name: dev1
+    enabled: false
+    running: true
+    password: a
+    cpu: 2
+    memory: 4
+    image_url: "./artifacts/images/noble-server-cloudimg-amd64.img"
+    image_vol_size: 100
+    # Optional: cloud-init network config. Interface names vary by OS/image.
+    # enp1s0 = hvst-libvirt (NAT), enp2s0 = hvst-mgmt. Omit to skip network setup.
+    network_config:
+      version: 2
+      ethernets:
+        enp1s0:
+          dhcp4: true
+        enp2s0:
+          dhcp4: true
+  - name: dev2
+    enabled: false
+    running: false
+    cpu: 2
+    memory: 4
+    image_url: "./artifacts/images/noble-server-cloudimg-amd64.img"
+    image_vol_size: 100
