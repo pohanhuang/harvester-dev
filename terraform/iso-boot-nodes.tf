@@ -43,7 +43,7 @@ resource "libvirt_domain" "iso_node" {
     type            = "hvm"
     type_arch       = "x86_64"
     type_machine    = "q35"
-    loader          = "/usr/share/qemu/ovmf-x86_64-4m.bin"
+    loader          = "/usr/share/qemu/OVMF.fd"
     loader_readonly = "yes"
     boot_devices = [
       {

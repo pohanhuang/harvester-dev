@@ -9,6 +9,7 @@ CONFIG_FILE=$(get_config_file)
 # Read prefix and node count from config.yaml using yq
 PREFIX=$(yq '.provider.domain_prefix' "$CONFIG_FILE")
 NODE_COUNT=$(yq '.node_count' "$CONFIG_FILE")
+VIP=$(yq '.vip' "$CONFIG_FILE")
 
 TIMEOUT_MINUTES=$(yq '.node_installed_timeout // 20' "$CONFIG_FILE")
 
@@ -33,13 +34,13 @@ while true; do
     fi
   done
   
-  if [ "$all_shutoff" = true ]; then
+  if [ "$all_shutoff" = true ] || curl --insecure --silent --fail --max-time 5 "https://${VIP}" > /dev/null 2>&1; then
     elapsed=$(( $(date +%s) - start_time ))
-    echo "All node VMs are shut off!"
+    echo "Node installation completed."
     echo "Total time: ${elapsed}s"
     break
   fi
-  
+
   count=$((count + 1))
   if [ $count -ge $max_attempts ]; then
     echo "Error: Timeout reached after $timeout_minutes minutes. Not all VMs shut off."

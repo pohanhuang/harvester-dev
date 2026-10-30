@@ -55,9 +55,7 @@ resource "libvirt_domain" "node" {
     type            = "hvm"
     type_arch       = "x86_64"
     type_machine    = "q35"
-    # for ubuntu
-    #loader  = "/usr/share/OVMF/OVMF_CODE_4M.fd"
-    loader          = "/usr/share/qemu/ovmf-x86_64-4m.bin"
+    loader          = "/usr/share/qemu/OVMF.fd"
     loader_readonly = "yes"
     # for ubuntu
     #loader_type = "pflash"

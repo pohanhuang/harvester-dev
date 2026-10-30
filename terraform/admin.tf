@@ -129,14 +129,6 @@ resource "libvirt_domain" "harvester-dev-admin" {
     pae = true
   }
 
-  # Workaround (disable AppArmor confinement for this VM) if host policy is not configured yet:
-  # sec_label = [
-  #   {
-  #     model = "apparmor"
-  #     type  = "none"
-  #   }
-  # ]
-
   os = {
     type         = "hvm"
     type_arch    = "x86_64"
