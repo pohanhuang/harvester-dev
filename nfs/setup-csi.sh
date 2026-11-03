@@ -10,7 +10,9 @@ RELEASE="csi-driver-nfs"
 NAMESPACE="kube-system"
 CHART_REPO="csi-driver-nfs"
 CHART_URL="https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts"
-CHART_VERSION="v4.10.0"
+# GitHub tags use a v prefix, while the Helm chart index publishes this chart
+# version without it (4.13.6).
+CHART_VERSION="4.13.6"
 STORAGE_CLASS="nfs-csi"
 NFS_SHARE="/backup_target"
 

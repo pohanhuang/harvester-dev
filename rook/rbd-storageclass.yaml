@@ -1,0 +1,40 @@
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: rook-ceph-rbd-pool
+  namespace: rook-ceph
+spec:
+  failureDomain: host
+  replicated:
+    # One replica is placed on each of the three Harvester VMs.
+    size: 3
+    requireSafeReplicaSize: true
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: rook-ceph-rbd
+provisioner: rook-ceph.rbd.csi.ceph.com
+parameters:
+  clusterID: rook-ceph
+  pool: rook-ceph-rbd-pool
+  imageFormat: "2"
+  # The Harvester nodes run a kernel newer than 5.4, which supports these
+  # kernel-RBD image features.
+  imageFeatures: layering,fast-diff,object-map,deep-flatten,exclusive-lock
+  csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
+  csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+  csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
+  csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+  csi.storage.k8s.io/controller-publish-secret-name: rook-csi-rbd-provisioner
+  csi.storage.k8s.io/controller-publish-secret-namespace: rook-ceph
+  csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
+  csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+  csi.storage.k8s.io/controller-modify-secret-name: rook-csi-rbd-provisioner
+  csi.storage.k8s.io/controller-modify-secret-namespace: rook-ceph
+  csi.storage.k8s.io/node-publish-secret-name: rook-csi-rbd-node
+  csi.storage.k8s.io/node-publish-secret-namespace: rook-ceph
+  csi.storage.k8s.io/fstype: ext4
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

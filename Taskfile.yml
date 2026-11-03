@@ -64,6 +64,31 @@ tasks:
     desc: Verify a ReadWriteOnce PVC can mount and read/write through NFS CSI
     cmds:
       - ./nfs/test-rwo-pvc.sh
+  rook-ceph-preflight:
+    desc: Verify that the three raw /dev/vdb disks are safe for Rook/Ceph to consume
+    preconditions:
+      - sh: test -f {{.ROOT_DIR}}/kubeconfig
+        msg: "kubeconfig not found, install the Harvester cluster first"
+      - sh: test -f {{.ROOT_DIR}}/state/ssh_config
+        msg: "state/ssh_config not found, provision the admin node first"
+    cmds:
+      - ./rook/preflight.sh
+  rook-ceph-up:
+    desc: Install Rook/Ceph and create the separate rook-ceph-rbd StorageClass (erases each node's /dev/vdb)
+    preconditions:
+      - sh: test -f {{.ROOT_DIR}}/kubeconfig
+        msg: "kubeconfig not found, install the Harvester cluster first"
+      - sh: test -f {{.ROOT_DIR}}/state/ssh_config
+        msg: "state/ssh_config not found, provision the admin node first"
+    cmds:
+      - ./rook/setup.sh
+  rook-ceph-test:
+    desc: Verify a ReadWriteOnce PVC mounts and reads/writes through Rook/Ceph RBD
+    preconditions:
+      - sh: test -f {{.ROOT_DIR}}/kubeconfig
+        msg: "kubeconfig not found, install the Harvester cluster first"
+    cmds:
+      - ./rook/test-rbd-pvc.sh
   generate-macs:
     desc: Generate MAC addresses for nodes and update config file
     cmds:

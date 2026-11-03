@@ -10,11 +10,11 @@
 ##############################################################################
 harvester_release_url: https://releases.rancher.com/harvester
 artifact_server_url: http://10.0.10.1:8787
-harvester_version: harvester-a5f0b413-dirty
-harvester_iso_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-amd64.iso
-harvester_kernel_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-vmlinuz-amd64
-harvester_ramdisk_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-initrd-amd64
-harvester_rootfs_url: http://10.0.10.1:8787/isos/harvester-a5f0b413-dirty/harvester-a5f0b413-dirty-rootfs-amd64.squashfs
+harvester_version: harvester-c20d7b7b
+harvester_iso_url: http://10.0.10.1:8787/isos/harvester-c20d7b7b/harvester-c20d7b7b-amd64.iso
+harvester_kernel_url: http://10.0.10.1:8787/isos/harvester-c20d7b7b/harvester-c20d7b7b-vmlinuz-amd64
+harvester_ramdisk_url: http://10.0.10.1:8787/isos/harvester-c20d7b7b/harvester-c20d7b7b-initrd-amd64
+harvester_rootfs_url: http://10.0.10.1:8787/isos/harvester-c20d7b7b/harvester-c20d7b7b-rootfs-amd64.squashfs
 ##############################################################################
 # Golden image configuration
 ##############################################################################
@@ -254,7 +254,7 @@ tests:
   upgrade:
     skip_version_check: true
     parallel_preload: true
-    iso_url: http://10.0.10.1:8787/isos/harvester-master/harvester-master-amd64.iso
+    iso_url: http://10.0.10.1:8787/isos/harvester-c20d7b7b/harvester-c20d7b7b-amd64.iso
 ##############################################################################
 # ISO boot nodes
 ##############################################################################

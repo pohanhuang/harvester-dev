@@ -1,0 +1,46 @@
+# This cluster intentionally uses only the second, raw disk (vdb) on each
+# Harvester VM. Do not change useAllDevices to true: vda contains Harvester and
+# Longhorn data.
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+spec:
+  cephVersion:
+    image: quay.io/ceph/ceph:v20.2.4
+    allowUnsupported: false
+  # Persist monitor configuration outside the container filesystem.
+  dataDirHostPath: /var/lib/rook
+  # Kernel RBD clients on the Harvester nodes run a 6.12 kernel. The aes key
+  # type is compatible with this kernel and avoids requiring AES256K support.
+  security:
+    cephx:
+      csi:
+        keyType: aes
+  mon:
+    count: 3
+    allowMultiplePerNode: false
+  mgr:
+    count: 2
+    allowMultiplePerNode: false
+  dashboard:
+    enabled: true
+  network:
+    connections:
+      requireMsgr2: true
+  storage:
+    # Explicitly list storage devices so Rook cannot consume the Harvester
+    # system/Longhorn disk (vda).
+    useAllNodes: false
+    useAllDevices: false
+    nodes:
+      - name: node1
+        devices:
+          - name: vdb
+      - name: node2
+        devices:
+          - name: vdb
+      - name: node3
+        devices:
+          - name: vdb

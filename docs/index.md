@@ -11,6 +11,7 @@ Check the main [README.md](../README.md) for how to bring a Harvester clusters l
 
 - [op:harvester-configure-registries](harvester/configure-registries.md) — route image pulls through local mirror endpoints. The task configure the [`containerd-registry`](https://docs.harvesterhci.io/v1.8/advanced/index#containerd-registry) Harvseter setting.
 - [op:harvester-patch-images](harvester/patch-harvester-images.md) — patch the harvester managed chart to use a custom image repository and tag, then wait for reconciliation.
+- [Rook/Ceph RBD](rook-ceph.md) — install and test an optional, separate Ceph RBD StorageClass on the three raw `/dev/vdb` disks.
 
 ## Rancher Tasks - Manager Rancher Manager and Guest clusters
 

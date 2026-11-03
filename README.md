@@ -12,7 +12,8 @@ The project provisions a Harvester cluster inside VMs on your host. Key componen
 - **Terraform scripts** — VMs are defined with the [libvirt provider](https://github.com/dmacvicar/terraform-provider-libvirt); its templating also generates config files inside the Admin VM.
 - **Bash scripts** — provisioning and daily-ops scripts. Ansible and similar tools are intentionally avoided to keep dependencies minimal.
 - **Artifact server** — an nginx container that serves ISOs and images.
-- **NFS server** — an nfs-ganesha container that backs the default `nfs-csi` StorageClass.
+- **NFS server** — an nfs-ganesha container that backs the default `nfs-csi` StorageClass through NFS CSI v4.13.6.
+- **Optional Rook/Ceph RBD** — a separate, non-default block StorageClass for development testing; see [Rook/Ceph RBD](docs/rook-ceph.md).
 
 ### VMs and Networks
 
@@ -227,6 +228,9 @@ SSH config is at `./state/ssh_config`.
 task op:admin-enable-egress   # enable forwarding
 task op:admin-disable-egress  # disable forwarding
 task nfs-csi-test             # verify an RWO PVC mounts and reads/writes through NFS CSI
+task rook-ceph-preflight      # read-only check that /dev/vdb is safe to erase on all three nodes
+task rook-ceph-up             # install the optional Rook/Ceph RBD backend (erases /dev/vdb)
+task rook-ceph-test           # verify an RWO PVC mounts and reads/writes through Rook/Ceph RBD
 ```
 
 ## Tear down
