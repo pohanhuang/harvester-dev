@@ -25,7 +25,8 @@ for i in "${!ISOS[@]}"; do
   echo "  $((i+1))) $VERSION  $MTIME"
 done
 echo ""
-read -rp "Choose [1-${#ISOS[@]}]: " CHOICE
+read -rp "Choose [1-${#ISOS[@]}] (default: 1): " CHOICE
+CHOICE=${CHOICE:-1}
 
 ISO_FILE="${ISOS[$((CHOICE-1))]}"
 BASENAME=$(basename "$ISO_FILE" "-amd64.iso")
@@ -34,7 +35,7 @@ VERSION="${BASENAME#harvester-}"
 DEST_DIR="$ISOS_DIR/$BASENAME"
 echo ""
 mkdir -p "$DEST_DIR"
-mv -v "$SRC_DIR"/harvester-"$VERSION"-* "$DEST_DIR"/
+mv -fv "$SRC_DIR"/harvester-"$VERSION"-* "$DEST_DIR"/
 
 # Find the index in select-install-iso.sh's listing (sorted by glob)
 INDEX=1

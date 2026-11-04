@@ -51,6 +51,7 @@ sed -i "s|^harvester_iso_url:.*|harvester_iso_url: $ARTIFACT_SERVER_URL/isos/$SE
 sed -i "s|^harvester_kernel_url:.*|harvester_kernel_url: $ARTIFACT_SERVER_URL/isos/$SELECTED_VERSION/$SELECTED_VERSION-vmlinuz-amd64|" "$CONFIG_FILE"
 sed -i "s|^harvester_ramdisk_url:.*|harvester_ramdisk_url: $ARTIFACT_SERVER_URL/isos/$SELECTED_VERSION/$SELECTED_VERSION-initrd-amd64|" "$CONFIG_FILE"
 sed -i "s|^harvester_rootfs_url:.*|harvester_rootfs_url: $ARTIFACT_SERVER_URL/isos/$SELECTED_VERSION/$SELECTED_VERSION-rootfs-amd64.squashfs|" "$CONFIG_FILE"
+sed -i "/^iso_boot:/,/^[^[:space:]]/ s|^  file:.*|  file: \"$ISOS_DIR/$SELECTED_VERSION/$SELECTED_VERSION-amd64.iso\"|" "$CONFIG_FILE"
 
 echo "Configuration updated successfully!"
 echo ""
