@@ -151,6 +151,13 @@ tasks:
       - task: nfs-up
       - task: op:nodes-install
       - task: nfs-csi-up
+  join-up:
+    desc: Build base dev infra and install PXE nodes sequentially before configuring NFS CSI
+    deps: [admin-up]
+    cmds:
+      - task: nfs-up
+      - task: op:nodes-join-install
+      - task: nfs-csi-up
   rancher-install:
     desc: Bring up the Rancher VM and wait for it to be ready
     deps: [init]

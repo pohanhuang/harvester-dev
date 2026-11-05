@@ -124,6 +124,23 @@ tasks:
       - task: nodes-rke2-env
       - task: test-cluster-ready
       - task: harvester-change-default-password
+  nodes-join-first-boot:
+    desc: Install node1 before nodes 2+ fetch its VIP join profile
+    cmds:
+      - ./nodes/join-up.sh
+      - touch {{.STATE_DIR}}/nodes_installed
+    status:
+      - test -f {{.STATE_DIR}}/nodes_installed
+  nodes-join-install:
+    desc: Sequentially install nodes, then wait for the Harvester cluster to be ready
+    cmds:
+      - task: nodes-join-first-boot
+      - task: nodes-start
+      - ./nodes/wait-vip.sh
+      - ./nodes/vip-ensure-stable.sh
+      - task: nodes-rke2-env
+      - task: test-cluster-ready
+      - task: harvester-change-default-password
   nodes-reinstall:
     desc: Reset node disks and re-install Harvester on all nodes again
     cmds:
