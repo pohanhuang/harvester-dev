@@ -41,9 +41,10 @@ locals {
       vip      = local.config.vip
       vip_mac  = local.config.vip_mac
       vip_mode = local.config.vip_mode
-      role     = node.role
-      password = local.config.node_password
-      ssh_keys = concat([trimspace(file("${path.module}/../${local.config.admin.pubkey_path}"))], try(local.config.node_additional_keys, []))
+      role                       = node.role
+      password                   = local.config.node_password
+      ssh_keys                   = concat([trimspace(file("${path.module}/../${local.config.admin.pubkey_path}"))], try(local.config.node_additional_keys, []))
+      skip_longhorn_default_disk = try(local.config.skip_longhorn_default_disk, false)
     })
   }
 

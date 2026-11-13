@@ -78,7 +78,8 @@ resource "libvirt_domain" "node" {
     }
   }
 
-  running = false
+  running   = false
+  on_crash  = "restart"
 
   devices = {
     disks = [for i in range(length(each.value.disks)) : {

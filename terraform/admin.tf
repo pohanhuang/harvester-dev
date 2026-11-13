@@ -33,6 +33,11 @@ resource "libvirt_volume" "admin_base" {
     format = {
       type = "qcow2"
     }
+    permissions = {
+      owner = data.external.qemu_ids.result.uid != "" ? data.external.qemu_ids.result.uid : null
+      group = data.external.qemu_ids.result.gid != "" ? data.external.qemu_ids.result.gid : null
+      mode  = "0640"
+    }
   }
 
   create = {
@@ -58,6 +63,11 @@ resource "libvirt_volume" "admin_disk" {
   target = {
     format = {
       type = "qcow2"
+    }
+    permissions = {
+      owner = data.external.qemu_ids.result.uid != "" ? data.external.qemu_ids.result.uid : null
+      group = data.external.qemu_ids.result.gid != "" ? data.external.qemu_ids.result.gid : null
+      mode  = "0640"
     }
   }
 }
@@ -99,6 +109,11 @@ resource "libvirt_volume" "admin_cloudinit_disk" {
   target = {
     format = {
       type = "iso"
+    }
+    permissions = {
+      owner = data.external.qemu_ids.result.uid != "" ? data.external.qemu_ids.result.uid : null
+      group = data.external.qemu_ids.result.gid != "" ? data.external.qemu_ids.result.gid : null
+      mode  = "0640"
     }
   }
 
